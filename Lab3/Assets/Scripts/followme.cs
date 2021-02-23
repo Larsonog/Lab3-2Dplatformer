@@ -8,10 +8,11 @@ public class followme : MonoBehaviour
 
     private Rigidbody2D body;
     private float horizontal;
-    private float vertical;
     private float runSpeed = 7f;
     public float moveLimiter = 2;
-
+    public float jumpForce = 400f;
+    private bool jumping;
+    SpriteRenderer sr;
 
 
 
@@ -19,6 +20,7 @@ public class followme : MonoBehaviour
     {
  
         body = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
        
     }
 
@@ -26,16 +28,32 @@ public class followme : MonoBehaviour
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
-        vertical = Input.GetAxisRaw("Vertical");
+
+        if (horizontal <= 0)
+        {
+            sr.flipX = true;
+        }
+        else
+        {
+            sr.flipX = false;
+        }
+
+        if (Input.GetKeyDown("space") && !jumping)
+        {
+            body.AddForce(new Vector2(0, jumpForce));
+            jumping = true;
+        }
+       
     }
     private void FixedUpdate()
     {
-        if (horizontal != 0 && vertical != 0)
-        {
-            horizontal = horizontal / moveLimiter;
-            vertical = vertical / moveLimiter;
-        }
-        body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
+        
+        body.velocity = new Vector2(horizontal * runSpeed, body.velocity.y);
        
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        jumping = false;
     }
 }
