@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class shoveldig : MonoBehaviour
+public class popnofly : MonoBehaviour
 {
     private bool popp;
     // Start is called before the first frame update
@@ -25,7 +24,10 @@ public class shoveldig : MonoBehaviour
 
             GameManager.Instance.IncScore(1);
             popp = false;
+            followme pm = collision.gameObject.GetComponent<followme>();
+            pm.Fly(false);
         }
 
     }
 }
+

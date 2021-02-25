@@ -5,34 +5,39 @@ using UnityEngine;
 public class followme : MonoBehaviour
 {
 
-
+    
     private Rigidbody2D body;
     private float horizontal;
+    private float vertical;
     private float runSpeed = 7f;
     public float moveLimiter = .7f;
     public float jumpForce = 400f;
     private bool jumping;
     SpriteRenderer sr;
-    private bool sliding;
+    private bool flying;
 
 
 
     void Start()
     {
- 
+
         body = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
-        sliding = false;
-       
+        flying = false;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!sliding)
+       
+        horizontal = Input.GetAxisRaw("Horizontal");
+
+        if (flying)
         {
-            horizontal = Input.GetAxisRaw("Horizontal");
-        } 
+            vertical = Input.GetAxisRaw("Vertical");
+        }
+      
 
 
         if (horizontal <= 0)
@@ -50,23 +55,29 @@ public class followme : MonoBehaviour
             body.AddForce(new Vector2(0, jumpForce));
             jumping = true;
         }
-        
+
     }
     private void FixedUpdate()
     {
-        
+        if (flying)
+        {
+            body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
+        }
         body.velocity = new Vector2(horizontal * runSpeed, body.velocity.y);
-        
-       
+
+
     }
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         jumping = false;
     }
 
-    public void Slide(bool sliding)
+    public void Fly(bool flying)
     {
-        this.sliding = sliding;
+        this.flying = flying;
     }
-}
+
+    
+} 

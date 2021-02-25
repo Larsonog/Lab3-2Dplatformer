@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public GameObject canvas;
     public GameObject events;
+    public GameObject popcorn;
 
 
     // Start is called before the first frame update
@@ -66,6 +67,8 @@ public class GameManager : MonoBehaviour
         score += ds;
         scoreText.text = "Popcorn Count: " + score;
     }
+
+    
 
     void Start()
     {

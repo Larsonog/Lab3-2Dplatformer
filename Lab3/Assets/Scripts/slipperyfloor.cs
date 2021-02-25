@@ -15,15 +15,7 @@ public class slipperyfloor : MonoBehaviour
     {
         
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log("ICE");
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            followme pm = collision.gameObject.GetComponent<followme>();
-            pm.Slide(true);
-        }
-    }
+    
 
     
 }
