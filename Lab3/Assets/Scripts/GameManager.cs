@@ -20,6 +20,12 @@ public class GameManager : MonoBehaviour
     public GameObject popcorn;
 
 
+    public GameObject dialogueBox;
+    public GameObject dialogueText;
+
+    private Coroutine dialogCO;
+
+
     // Start is called before the first frame update
 
     private void Awake()
@@ -36,6 +42,32 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+    public void StartDialogue(string text)
+    {
+        dialogueBox.SetActive(true);
+        dialogueText.GetComponent<TextMeshProUGUI>().text = text;
+        //dialogCO = StartCoroutine(TypeText(text));
+    }
+    public void StopDialogue()
+    {
+        dialogueBox.SetActive(false);
+        StopCoroutine(dialogCO);
+    }
+    IEnumerator TypeText(string text)
+    {
+        dialogueText.GetComponent<TextMeshProUGUI>().text = "";
+        foreach (char c in text.ToCharArray())
+        {
+            dialogueText.GetComponent<TextMeshProUGUI>().text += c;
+            yield return new WaitForSeconds(0.05f);
+        }
+    }
+
+    public void HideDialog()
+    {
+        dialogueBox.SetActive(false);
+        StopAllCoroutines();
     }
     public void StartButton()
     {

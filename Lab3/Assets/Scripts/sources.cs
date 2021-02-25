@@ -17,6 +17,12 @@ using UnityEngine;
 //shovel
 //https://opengameart.org/content/shovel-1
 
+//astronaut
+//https://marmoset.co/posts/sprite-sheet-creation-in-hexels/
+
+//sign
+//https://opengameart.org/content/lpc-sign-post
+
 
 public class sources : MonoBehaviour
 {
