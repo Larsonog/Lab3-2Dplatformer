@@ -13,7 +13,8 @@ public class GameManager : MonoBehaviour
     public GameObject backgroundImage;
     public GameObject instructionsButton;
     public GameObject playButton;
-
+    private int score = 0;
+    public TextMeshProUGUI scoreText;
     public GameObject canvas;
     public GameObject events;
 
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
             DontDestroyOnLoad(canvas);
             DontDestroyOnLoad(events);
+            
         }
         else
         {
@@ -49,6 +51,7 @@ public class GameManager : MonoBehaviour
         startButton.SetActive(false);
         StartCoroutine(LoadYourAsyncScene("Instructions"));
     }
+    
 
     public void PlayButton()
     {
@@ -56,6 +59,12 @@ public class GameManager : MonoBehaviour
         playButton.SetActive(false);
         StartCoroutine(LoadYourAsyncScene("level1"));
         Debug.Log("going to level 1 via the Instructions Scene");
+    }
+
+    public void IncScore(int ds)
+    {
+        score += ds;
+        scoreText.text = "Popcorn Count: " + score;
     }
 
     void Start()

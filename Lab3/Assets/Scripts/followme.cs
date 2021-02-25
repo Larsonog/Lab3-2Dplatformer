@@ -9,7 +9,7 @@ public class followme : MonoBehaviour
     private Rigidbody2D body;
     private float horizontal;
     private float runSpeed = 7f;
-    public float moveLimiter = 2;
+    public float moveLimiter = .7f;
     public float jumpForce = 400f;
     private bool jumping;
     SpriteRenderer sr;
@@ -56,10 +56,7 @@ public class followme : MonoBehaviour
     {
         
         body.velocity = new Vector2(horizontal * runSpeed, body.velocity.y);
-        if (horizontal != 0)
-        {
-            horizontal *= moveLimiter;
-        }
+        
        
     }
 
