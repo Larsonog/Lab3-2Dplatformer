@@ -12,6 +12,11 @@ public class GameManager : MonoBehaviour
     public GameObject startButton;
     public GameObject backgroundImage;
     public GameObject instructionsButton;
+    public GameObject playButton;
+
+    public GameObject canvas;
+    public GameObject events;
+
 
     // Start is called before the first frame update
 
@@ -21,7 +26,8 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-          
+            DontDestroyOnLoad(canvas);
+            DontDestroyOnLoad(events);
         }
         else
         {
@@ -31,7 +37,25 @@ public class GameManager : MonoBehaviour
     public void StartButton()
     {
         startButton.SetActive(false);
+        instructionsButton.SetActive(false);
+        //StartCoroutine(ColorLerp(new Color(1, 1, 1, 0), 2));
         StartCoroutine(LoadYourAsyncScene("level1"));
+        Debug.Log("going to level 1");
+        
+    }
+    public void InstructionsButton()
+    {
+        instructionsButton.SetActive(false);
+        startButton.SetActive(false);
+        StartCoroutine(LoadYourAsyncScene("Instructions"));
+    }
+
+    public void PlayButton()
+    {
+        Debug.Log("play button has been pressed");
+        playButton.SetActive(false);
+        StartCoroutine(LoadYourAsyncScene("level1"));
+        Debug.Log("going to level 1 via the Instructions Scene");
     }
 
     void Start()
@@ -69,9 +93,5 @@ public class GameManager : MonoBehaviour
         sprite.color = endValue;
     }
 
-    public void InstructionsButton()
-    {
-        instructionsButton.SetActive(false);
-        StartCoroutine(LoadYourAsyncScene("Instructions"));
-    }
+   
 }
