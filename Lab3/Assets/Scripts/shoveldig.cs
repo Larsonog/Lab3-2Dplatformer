@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class shoveldig : MonoBehaviour
 {
     private bool popp;
+    public GameObject particles;
+    public GameObject wall;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,9 +24,10 @@ public class shoveldig : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Player") && popp)
         {
-
+            Destroy(wall);
             GameManager.Instance.IncScore(1);
             popp = false;
+            particles.GetComponent<ParticleSystem>().Stop();
         }
 
     }

@@ -15,6 +15,8 @@ public class followme : MonoBehaviour
     private bool jumping;
     SpriteRenderer sr;
     private bool flying;
+    public GameObject trail;
+
 
 
 
@@ -23,6 +25,7 @@ public class followme : MonoBehaviour
 
         body = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
+        
         flying = false;
 
     }
@@ -77,6 +80,14 @@ public class followme : MonoBehaviour
     public void Fly(bool flying)
     {
         this.flying = flying;
+        if (flying)
+        {
+            trail.GetComponent<TrailRenderer>().emitting = true;
+            
+        } if (!flying)
+        {
+            trail.GetComponent<TrailRenderer>().emitting = false;
+        }
     }
 
     

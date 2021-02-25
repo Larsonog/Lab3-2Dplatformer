@@ -5,9 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class Level2 : MonoBehaviour
 {
+    public bool complete;
+    public GameObject nextlevel;
     // Start is called before the first frame update
     void Start()
     {
+        complete = false;
         
     }
 
@@ -21,8 +24,10 @@ public class Level2 : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Player"))
         {
-            
+
             StartCoroutine(LoadYourAsyncScene("level2"));
+
+
         }
 
     }
@@ -35,4 +40,12 @@ public class Level2 : MonoBehaviour
             yield return null;
         }
     }
+
+    public void completed(bool complete)
+    {
+        Debug.Log("hello");
+        this.complete = complete;
+        
+
+        }
 }
