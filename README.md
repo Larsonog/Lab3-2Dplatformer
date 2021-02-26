@@ -1,4 +1,6 @@
 Lab3-2Dplatformer
+
+
 Intent and narrative of the game: 
 
 We designed our game with the enjoyment of the user in mind. Each sprite is adorably cute, and the user can’t help but smile while playing. While there is no clear explanation for why the astronaut is on the hunt for popcorn or even why the mysterious aliens also want to acquire the popcorn, it is key to the narrative of the game. There are 4 levels in the game, each with their own unique twist. The first level starts with astronaut climbing a mountain trying to catch the spawning popcorn. But watch out, the alien is there too. In the second level, the player must go deep beneath the moon’s surface to find a shovel. In the third level, the astronaut gets to fly around with a jet pack! The moon is their oyster, the player can go in any direction they wish! All three levels lead up to the FINAL LEVEL! In an all-out boss battle the astronaut must defeat the alien with its laser gun. 
