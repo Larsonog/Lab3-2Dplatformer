@@ -131,7 +131,10 @@ public class GameManager : MonoBehaviour
         scoreText.text = "Popcorn Count: " + score;
     }
 
-    
+    public void GameOver()
+    {
+        StartCoroutine(LoadYourAsyncScene("EndGame"));
+    }
 
     void Start()
     {
