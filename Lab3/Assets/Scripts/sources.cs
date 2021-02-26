@@ -23,6 +23,11 @@ using UnityEngine;
 //sign
 //https://opengameart.org/content/lpc-sign-post
 
+//background music
+// https://freesound.org/people/Alittlebitdrunkguy/sounds/447515/
+
+//crunch sound
+//https://freesound.org/people/zteen/sounds/528962/
 
 public class sources : MonoBehaviour
 {
