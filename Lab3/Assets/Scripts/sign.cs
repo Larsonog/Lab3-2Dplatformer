@@ -18,16 +18,20 @@ public class sign : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
+            GameManager.Instance.dialogueText.SetActive(true);
             GameManager.Instance.StartDialogue(myText);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             GameManager.Instance.HideDialog();
+            GameManager.Instance.StopDialogue();
+            GameManager.Instance.dialogueText.SetActive(false);
+
         }
     }
 
