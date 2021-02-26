@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class alien : MonoBehaviour
 {
@@ -44,7 +45,14 @@ public class alien : MonoBehaviour
         transform.position = targetposition;
         NextUp();
     }
-
+    IEnumerator LoadYourAsyncScene(string scene)
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene);
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -52,8 +60,10 @@ public class alien : MonoBehaviour
             hit += 1;
             if (hit == 3)
             {
-                GameManager.Instance.GameOver();
+                StartCoroutine(LoadYourAsyncScene("GameOver"));
+
             }
         }
     }
+
 }

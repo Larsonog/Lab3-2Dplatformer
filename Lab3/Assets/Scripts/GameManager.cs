@@ -30,6 +30,11 @@ public class GameManager : MonoBehaviour
 
     private Coroutine dialogCO;
 
+    public GameObject sourceImage;
+    public GameObject instructionsimage;
+
+    public GameObject hit;
+
 
     // Start is called before the first frame update
 
@@ -91,6 +96,7 @@ public class GameManager : MonoBehaviour
         startButton.SetActive(false);
         sourcesButton.SetActive(false);
         playButton.SetActive(true);
+        instructionsimage.SetActive(true);
         Debug.Log("Instructions loading");
         StartCoroutine(ColorLerp(new Color(1, 1, 1, 0), 2));
         instructionsBox.SetActive(true);
@@ -105,7 +111,9 @@ public class GameManager : MonoBehaviour
         startButton.SetActive(false);
         sourcesButton.SetActive(false);
         StartCoroutine(ColorLerp(new Color(1, 1, 1, 0), 2));
-        sourcesText.GetComponent<TextMeshProUGUI>().text = "rock: https://pixy.org/203104/ popcorn: https://opengameart.org/content/popcorn-icon ship: https://opengameart.org/content/ufo-boss-set tilemap: https://soulares.itch.io/moonroar-cave-field shovel: https://opengameart.org/content/shovel-1 astronaut: https://marmoset.co/posts/sprite-sheet-creation-in-hexels/ sign: https://opengameart.org/content/lpc-sign-post";
+        playButton.SetActive(true);
+        sourceImage.SetActive(true);
+        sourcesText.GetComponent<TextMeshProUGUI>().text = "rock: https://pixy.org/203104/ popcorn: https://opengameart.org/content/popcorn-icon ship: https://opengameart.org/content/ufo-boss-set tilemap: https://soulares.itch.io/moonroar-cave-field shovel: https://opengameart.org/content/shovel-1 astronaut: https://marmoset.co/posts/sprite-sheet-creation-in-hexels/ sign: https://opengameart.org/content/lpc-sign-post background music: https://freesound.org/people/Romariogrande/sounds/504549/ alien: https://www.iconfinder.com/icons/6141372/8-bit_alien_cartoon_game_invaders_monster_pixel_art_icon";
 
 
     }
@@ -122,6 +130,9 @@ public class GameManager : MonoBehaviour
         instructionsText.GetComponent<TextMeshProUGUI>().text = "";
         playButton.SetActive(false);
         sourcesText.SetActive(false);
+        instructionsimage.SetActive(false);
+        sourceImage.SetActive(false);
+
         //dialogueBox.SetActive(false);
     }
 
@@ -170,6 +181,7 @@ public class GameManager : MonoBehaviour
         }
         sprite.color = endValue;
     }
-
-   
+    
 }
+
+

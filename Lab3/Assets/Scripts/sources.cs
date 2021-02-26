@@ -24,10 +24,10 @@ using UnityEngine;
 //https://opengameart.org/content/lpc-sign-post
 
 //background music
-// https://freesound.org/people/Alittlebitdrunkguy/sounds/447515/
+// https://freesound.org/people/Romariogrande/sounds/504549/
 
-//crunch sound
-//https://freesound.org/people/zteen/sounds/528962/
+//alien
+//https://www.iconfinder.com/icons/6141372/8-bit_alien_cartoon_game_invaders_monster_pixel_art_icon
 
 public class sources : MonoBehaviour
 {
