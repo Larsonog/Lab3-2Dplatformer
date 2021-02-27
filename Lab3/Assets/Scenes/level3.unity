@@ -1181,12 +1181,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 515452241}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.248346, y: -0.64194596, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -8.807011, y: -5.258783, z: 4.3917894}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 1059608537}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &515452245
 BoxCollider2D:
@@ -82341,6 +82341,7 @@ Transform:
   - {fileID: 282847165}
   - {fileID: 442684754}
   - {fileID: 206623454}
+  - {fileID: 515452244}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -89031,6 +89032,9 @@ MonoBehaviour:
   instructionsBox: {fileID: 0}
   dialogueBox: {fileID: 0}
   dialogueText: {fileID: 0}
+  sourceImage: {fileID: 0}
+  instructionsimage: {fileID: 0}
+  hit: {fileID: 0}
 --- !u!4 &1879162302
 Transform:
   m_ObjectHideFlags: 0
@@ -89043,7 +89047,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1951190347
 GameObject:

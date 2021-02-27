@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class alien : MonoBehaviour
 {
@@ -60,6 +61,7 @@ public class alien : MonoBehaviour
             hit += 1;
             if (hit == 3)
             {
+                GameManager.Instance.scoreText.GetComponent<TextMeshProUGUI>().text = "";
                 StartCoroutine(LoadYourAsyncScene("GameOver"));
 
             }
